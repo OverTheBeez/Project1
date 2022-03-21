@@ -1,17 +1,26 @@
 package com.example.project1;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
+
 public class MainActivity extends AppCompatActivity {
+
+
 
     TextView answerTextView;
     Button zeroButton, oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton,
-            eightButton, nineButton, addButton, subtractButton, multiplyButton, divideButton, equalsButton, decimalButton;
+            eightButton, nineButton, addButton, subtractButton, multiplyButton, divideButton,
+            equalsButton, decimalButton, clearButton, historyButton;
 
     double value1, value2;
 
@@ -40,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         divideButton = (Button) findViewById(R.id.divisionButton);
         equalsButton = (Button) findViewById(R.id.equalsButton);
         decimalButton = (Button) findViewById(R.id.decimalButton);
+        clearButton = (Button) findViewById(R.id.clearButton);
+        historyButton = (Button) findViewById(R.id.historyButton);
 
         zeroButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,6 +126,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 answerTextView.setText(answerTextView.getText() + ".");
+            }
+        });
+
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                answerTextView.setText("");
             }
         });
 
